@@ -4,7 +4,7 @@ metadata:
   name: ecsdemo-crystal
   labels:
     app: ecsdemo-crystal
-  namespace: default
+  namespace: ecsdemo 
 spec:
   replicas: 1
   selector:
