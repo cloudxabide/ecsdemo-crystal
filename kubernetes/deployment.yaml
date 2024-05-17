@@ -21,7 +21,7 @@ spec:
         app: ecsdemo-crystal
     spec:
       containers:
-      - image: brentley/ecsdemo-crystal:latest
+      - image: cloudxabide/ecsdemo-crystal:latest
         imagePullPolicy: Always
         name: ecsdemo-crystal
         ports:
