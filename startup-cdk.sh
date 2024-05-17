@@ -44,28 +44,25 @@ if [[ "${orchestrator}" == 'ecs' ]]; then
 fi
 
 if [[ "${orchestrator}" == 'kubernetes' ]]; then
-    if ((0<=${NETWORK} && ${NETWORK}<32))
-        then
-            zone=a
-    elif ((32<=${NETWORK} && ${NETWORK}<64))
-        then
-            zone=b
-    elif ((64<=${NETWORK} && ${NETWORK}<96))
-        then
-            zone=c
-    elif ((96<=${NETWORK} && ${NETWORK}<128))
-        then
-            zone=a
-    elif ((128<=${NETWORK} && ${NETWORK}<160))
-        then
-            zone=b
-    elif ((160<=${NETWORK}))
-        then
-            zone=c
-    else
+      case "${NETWORK}" in
+      0)
+        zone=a
+        color=Crimson
+        ;;
+      1)
+        zone=b
+        color=CornflowerBlue
+        ;;
+      2)
+        zone=c
+        color=LightGreen
+        ;;
+      *)
         zone=unknown
-    fi
-fi 
+        color=Yellow
+        ;;
+    esac
+fi
 
 if [[ ${orchestrator} == 'unknown' ]]; then
   zone=$(curl -m2 -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.availabilityZone' | grep -o .$)
