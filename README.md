@@ -3,3 +3,5 @@
 # Amazon ECS Workshop
 
 This is part of an Amazon ECS workshop at https://ecsworkshop.com
+
+[!ECS Demo Visualization](./ecsdemo-visualization.gif)
